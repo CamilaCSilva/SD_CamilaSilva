@@ -14,6 +14,15 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Produto {
 
+	public Produto(@NotNull @Size(min = 2, max = 100) String descricao) {
+		super();
+		this.descricao = descricao;
+	}
+	
+	public Produto() {
+		super();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -22,6 +31,7 @@ public class Produto {
 	@Size(min = 2, max = 100)
 	private String descricao;
 	
+
 	@ManyToMany(mappedBy = "listaProduto")
 	private List<Fornecedor> listaFornecedor;
 	

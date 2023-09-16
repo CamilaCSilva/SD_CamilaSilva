@@ -14,6 +14,20 @@ import jakarta.validation.constraints.Positive;
 @Entity
 public class NotaCompraItem {
 
+	
+	public NotaCompraItem() {
+		super();
+	}
+
+	public NotaCompraItem(NotaCompra notaCompra, Produto produto, @NotNull @Positive BigDecimal valorCompraProduto, 
+			@NotNull @Positive Integer quantidade) {
+		super();
+		this.notaCompra = notaCompra;
+		this.produto = produto;
+		this.valorCompraProduto = valorCompraProduto;
+		this.quantidade = quantidade;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

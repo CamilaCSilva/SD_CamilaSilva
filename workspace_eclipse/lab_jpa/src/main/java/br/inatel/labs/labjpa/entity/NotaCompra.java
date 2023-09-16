@@ -17,6 +17,16 @@ import jakarta.validation.constraints.Past;
 @Entity
 public class NotaCompra {
 
+	public NotaCompra() {
+		super();
+	}
+
+	public NotaCompra(@NotNull @Past LocalDate dataEmissao, Fornecedor fornecedor) {
+		super();
+		this.dataEmissao = dataEmissao;
+		this.fornecedor = fornecedor;
+	}
+
 	@Id
 	private Long id;
 	
