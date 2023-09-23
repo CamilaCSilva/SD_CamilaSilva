@@ -32,7 +32,7 @@ public class ProdutoService {
 	}
 	
 	public void remover(Produto p) {
-		p = em.merge( p );
+		p = em.merge( p ); // precismos entender o ciclo de vida de entidades
 		em.remove( p );
 	}
 }

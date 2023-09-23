@@ -14,9 +14,8 @@ import jakarta.validation.constraints.Positive;
 @Entity
 public class NotaCompraItem {
 
-	
+	// construtores...
 	public NotaCompraItem() {
-		super();
 	}
 
 	public NotaCompraItem(NotaCompra notaCompra, Produto produto, @NotNull @Positive BigDecimal valorCompraProduto, 

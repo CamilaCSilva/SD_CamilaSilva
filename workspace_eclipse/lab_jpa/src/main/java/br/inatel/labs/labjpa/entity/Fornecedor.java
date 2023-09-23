@@ -14,14 +14,15 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Fornecedor {
 
+	// construtores...
+	public Fornecedor() {
+	}
+	
 	public Fornecedor(@NotNull @Size(min = 2, max = 200) String razaoSocial) {
 		super();
 		this.razaoSocial = razaoSocial;
 	}
 
-	public Fornecedor() {
-		super();
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -17,8 +15,8 @@ import jakarta.validation.constraints.Past;
 @Entity
 public class NotaCompra {
 
+	// construtores...
 	public NotaCompra() {
-		super();
 	}
 
 	public NotaCompra(@NotNull @Past LocalDate dataEmissao, Fornecedor fornecedor) {
