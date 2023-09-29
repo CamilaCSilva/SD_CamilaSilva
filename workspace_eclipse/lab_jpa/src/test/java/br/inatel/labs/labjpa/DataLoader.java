@@ -61,26 +61,28 @@ class DataLoader {
 		nc1 = notaCompraService.salvarNotaCompra(nc1);
 		NotaCompra nc2 = new NotaCompra( LocalDate.of(2022, 2, 20), f2);
 		nc2 = notaCompraService.salvarNotaCompra(nc2);
-		notaCompraService.listarNotaCompra().forEach( System.out::println );
 		
-		//4.Nota Compra
+//		notaCompraService.listarNotaCompra().forEach( System.out::println );
+		
+		//4.Nota Compra Item
 		NotaCompraItem i1_1 = new NotaCompraItem(nc1, p1, new BigDecimal("300.00"), 2);
 		NotaCompraItem i1_2 = new NotaCompraItem(nc1, p2, new BigDecimal("1000.00"), 1); 
 		NotaCompraItem i1_3 = new NotaCompraItem(nc1, p3, new BigDecimal("500.00"), 3);
 		
 		i1_1 = notaCompraService.salvarNotaCompraItem(i1_1);
-		i1_1 = notaCompraService.salvarNotaCompraItem(i1_2);
-		i1_1 = notaCompraService.salvarNotaCompraItem(i1_3);
+		i1_2 = notaCompraService.salvarNotaCompraItem(i1_2);
+		i1_3 = notaCompraService.salvarNotaCompraItem(i1_3);
 		
 		NotaCompraItem i2_1 = new NotaCompraItem(nc2, p4, new BigDecimal("400.00"), 7);
 		NotaCompraItem i2_2 = new NotaCompraItem(nc2, p2, new BigDecimal("1000.00"), 2); 
 		NotaCompraItem i2_3 = new NotaCompraItem(nc2, p5, new BigDecimal("700.00"), 1);
 		
 		i2_1 = notaCompraService.salvarNotaCompraItem(i2_1);
-		i2_1 = notaCompraService.salvarNotaCompraItem(i2_2);
-		i2_1 = notaCompraService.salvarNotaCompraItem(i2_3);
+		i2_2 = notaCompraService.salvarNotaCompraItem(i2_2);
+		i2_3 = notaCompraService.salvarNotaCompraItem(i2_3);
 		
-		notaCompraService.listarNotaCompraItem().forEach( System.out::println );
+		List<NotaCompraItem> itens = notaCompraService.listarNotaCompraItem();
+		itens.forEach( System.out::println );
 	}
 
 }

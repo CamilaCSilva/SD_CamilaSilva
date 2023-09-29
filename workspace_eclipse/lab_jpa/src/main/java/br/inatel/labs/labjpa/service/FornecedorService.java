@@ -27,7 +27,7 @@ public class FornecedorService {
 	}
 	
 	public List<Fornecedor> listar(){
-		List<Fornecedor> listaFornecedor = em.createQuery("select f from f", Fornecedor.class)
+		List<Fornecedor> listaFornecedor = em.createQuery("select f from Fornecedor f", Fornecedor.class)
 				.getResultList();
 		return listaFornecedor;
 	}

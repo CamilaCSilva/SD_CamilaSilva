@@ -1,11 +1,13 @@
 package br.inatel.labs.labjpa;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.inatel.labs.labjpa.entity.NotaCompra;
 import br.inatel.labs.labjpa.entity.NotaCompraItem;
 import br.inatel.labs.labjpa.service.NotaCompraService;
 
@@ -14,6 +16,36 @@ public class LoadingDemo {
 
 	@Autowired
 	private NotaCompraService service;
+	
+	//mesmo código do anterior...
+	@Test
+	public void demoPlanejandoConsulta() { //Planejamento para o lazy loading não falhar 
+	 try {
+		 //mas invocando outro método
+		NotaCompra nota = service.buscarNotaCompraPeloIdComListaItem( 1L );
+		List<NotaCompraItem> listaNotaCompraItem = nota.getListaNotaCompraItem();
+		
+		for(NotaCompraItem item: listaNotaCompraItem) {
+			System.out.println( item );
+		}
+		System.out.println("Se chegou até aqui, o planejamento da consulta funcionou");
+	 } catch (Exception e) {
+		System.out.println("O carregamento foi LAZY e por isso lançou exception");
+		e.printStackTrace();
+	 }
+	}
+	
+	@Test
+	public void demoLazyLoading() {
+		try {
+			NotaCompra nota = service.buscarNotaCompraPeloId( 1L );
+			int tamanho = nota.getListaNotaCompraItem().size(); // provocando(chamando um metodo) o proxy
+			System.out.println( tamanho );
+		} catch (Exception e) {
+			System.out.println("O carregamento foi LAZY e por isso lançou exception");
+			e.printStackTrace();
+		}
+	}
 	
 	@Test
 	public void demoEagerLoading() {
