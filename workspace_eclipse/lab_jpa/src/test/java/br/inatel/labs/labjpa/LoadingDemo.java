@@ -38,7 +38,7 @@ public class LoadingDemo {
 	@Test
 	public void demoLazyLoading() {
 		try {
-			NotaCompra nota = service.buscarNotaCompraPeloId( 1L );
+			NotaCompra nota = service.buscarNotaCompraItemPeloId( 1L );
 			int tamanho = nota.getListaNotaCompraItem().size(); // provocando(chamando um metodo) o proxy
 			System.out.println( tamanho );
 		} catch (Exception e) {
